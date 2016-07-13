@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Bokeh Plot</title>
+
+        
+<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.10.0.min.css"
+    rel="stylesheet" type="text/css">
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-0.10.0.min.js"></script>
+  </head>
+  <body>
+      {{ div | safe }}
+      {{ script | safe }}
+
+      <br>
+      Change color of line to:<br>
+      <ul>
+	      <li><a href=/plot/green>green</a>
+	      <li><a href=/plot/red>red</a>
+	      <li><a href=/plot/blue>blue</a>
+	</ul>
+  </body>
+</html>

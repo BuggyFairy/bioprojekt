@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Figure examples</title>
+		<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.css" type="text/css" />
+		<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"></script>
+		
+	</head>
+	<body>
+	{{ script|safe }}
+	<h3>Willkommen zum Interaktiven Entwurf von DNA-Strukturen für Nanotechnologie-Anwendungen</h3>
+	<p>Mit diesem Tool ist es möglich eine sogenannte 4x4 Kachel interaktiv zu entwerfen.</p>
+	<p>Über das Dialogfeld unterhalb des Plots können Sie eine vorgefertige .fasta Datei laden, die die 4x4 Kachel Datenstruktur unterstützt. Die Informationen werden sowohl in die Textarea, als auch in den Plot geladen. Damit haben Sie die Möglichkeit die DNA-Sequenz sowohl über den Plot, einzelne Basen, oder in der Textarea, mehrere Basen auf einmal, zu ändern. Ändern Sie Informationen in der Textarea vergessen sie nicht anschließend den aktualisieren Button zu drücken. Haben Sie sich an die Konvention für die Datenstruktur gehalten, so sollten Ihre Änderungen nun korrekt im Plot dargestellt werden. Wir wünschen Ihnen viel Spaß beim herumexperementieren mit der App.</p>
+		<table width="100%" height="50%" border="1" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="50%">
+					<div vertical-align="top" align="left">
+						{{ div|safe }}
+					</div>
+				</td>
+				<td width="50%" style="position:relative">
+					<div vertical-align="top" align="right">
+						<textarea name="myname" style="height:599px; width:936px; position:absolute; top:0px; right:0px; bottom:0px; left:0px; border:medium none; margin:0px; padding:0px;">{% if fasta_file %}{{fasta_file }}{% else %}No .fasta file loaded, use the formular below to load some fancy stuff ;){% endif %}</textarea>
+					</div>
+				</td>
+			</tr>
+		</table> 
+		
+		<div>
+			<div style="display:inline-block ; float:left">
+				<form action="loadfasta" method="post" enctype="multipart/form-data"> 
+					<p> 
+						Wählen Sie eine Fastadatei (*.fasta) von Ihrem Rechner aus:<br> 
+						<input name="datei"> 
+					</p> 
+					<input type="submit" value="Datei laden">
+				</form>	
+			</div>
+			<div style="display:inline-block ; float:right ; margin-top:15px">
+				<button type="button" id="aktualisieren" >Aktualisieren</button>
+			</div>
+		</div>
+		<br>
+		<div align="center" text-align="left" style="clear:both">
+				<form action="savefasta" method="post" enctype="multipart/form-data"> 
+					<p> 
+						Sie können Ihre Ergebnisse mit dem angegeben Namen lokal speichern:<br> 
+						<input name="save"> 
+					</p> 
+					<input type="submit" value="Datei speichern">
+				</form>	
+		</div>
+		<br><br>
+		<div vertical-align="buttom">
+						<textarea name="myname" style="height:200px; width:100%;">This is the output console:
+q-unique
+errors
+longest q-unique subsequence
+and alot of other stuff</textarea>
+		</div>
+	</body>
+</html>
